@@ -2,26 +2,26 @@
 name: ducquang2
 description: Duc Quang's personal site, printed as a wax pack trading card and the numbered set it belongs to.
 colors:
-  ground: "#cdc8bc"
-  ground-deep: "#bfb9ab"
+  ground: "#c8cbbd"
+  ground-deep: "#b9bdad"
   text: "#151515"
-  text-soft: "#3d3a34"
-  link: "#1d4f91"
-  heading: "#12305c"
-  rule: "#12305c"
+  text-soft: "#353a33"
+  link: "#17532f"
+  heading: "#12381f"
+  rule: "#12381f"
   rule-accent: "#b3242b"
   red-text: "#9a1c22"
-  ground-dark: "#1c1b19"
-  ground-deep-dark: "#131211"
+  ground-dark: "#1a1c19"
+  ground-deep-dark: "#121411"
   text-dark: "#ece8de"
-  text-soft-dark: "#b8b3a6"
-  link-dark: "#9cbcec"
+  text-soft-dark: "#b5b8ab"
+  link-dark: "#8fd0a5"
   heading-dark: "#ece8de"
-  rule-dark: "#57534b"
+  rule-dark: "#515a50"
   rule-accent-dark: "#d4545a"
   red-text-dark: "#e0666b"
-  print-blue: "#1d4f91"
-  print-navy: "#12305c"
+  print-team: "#1f6b3f"
+  print-deep: "#12381f"
   print-red: "#b3242b"
   print-white: "#f7f5f0"
   print-stock: "#dcd7ca"
@@ -76,14 +76,14 @@ spacing:
   stack: "28px"
 components:
   button-primary:
-    backgroundColor: "{colors.print-navy}"
+    backgroundColor: "{colors.print-deep}"
     textColor: "{colors.print-white}"
     typography: "{typography.label}"
     rounded: "{rounded.plate}"
     padding: "10px 20px 9px"
     height: "48px"
   button-primary-hover:
-    backgroundColor: "{colors.print-blue}"
+    backgroundColor: "{colors.print-team}"
   button-primary-dark:
     backgroundColor: "{colors.print-red}"
     textColor: "{colors.print-white}"
@@ -107,7 +107,7 @@ components:
     textColor: "{colors.text-soft}"
     typography: "{typography.label}"
   player-card-front:
-    backgroundColor: "{colors.print-blue}"
+    backgroundColor: "{colors.print-team}"
     rounded: "{rounded.card}"
     width: "min(440px, 86vw)"
   player-card-back:
@@ -116,7 +116,7 @@ components:
     typography: "{typography.stat}"
     rounded: "{rounded.card}"
   contact-band:
-    backgroundColor: "{colors.print-navy}"
+    backgroundColor: "{colors.print-deep}"
     textColor: "{colors.print-white}"
     padding: "clamp(56px, 8vw, 96px) 0"
 ---
@@ -127,27 +127,28 @@ components:
 
 **Creative North Star: "The Wax Pack Card"**
 
-The visitor is handed a trading card. Duc is the card: a portrait front with a slab-caps name bar and a position disc, a stat back with his real seasons in ruled monospace, and around it the numbered set it belongs to (projects, Now, posts as checklist entries). Everything on the page is either the card stock it sits on or ink printed in the card set's team colours: dodger blue, navy, cardinal red, black stat ink, and one strip of gold foil.
+The visitor is handed a trading card. Duc is the card: a portrait front with a slab-caps name bar and a position disc, a stat back with his real seasons in ruled monospace, and around it the numbered set it belongs to (projects, Now, posts as checklist entries). Everything on the page is either the card stock it sits on or ink printed in the card set's team colours: forest green, deep forest, cardinal red, black stat ink, and one strip of gold foil.
 
-The page ground is gum-grey card stock, never cream, and at night it becomes stat-ink charcoal. The printed cards are physical objects: their colours do not change between schemes. Density is set-checklist density: big slab caps, generous rules, numbered rows, short ruled tables. Structure comes from rules and seams, not boxes.
+The page ground is green-grey card stock, never cream, and at night it becomes green charcoal. The printed cards are physical objects: their colours do not change between schemes. Density is set-checklist density: big slab caps, generous rules, numbered rows, short ruled tables. Structure comes from rules and seams, not boxes.
 
-Motion is a single event: the 3D card flip. Nothing else animates beyond 160ms colour changes on buttons, and reduced motion swaps the faces instantly.
+Motion belongs to the card alone: the 3D flip, plus a gentle pointer tilt (max 6deg, with a faint soft-light glare) on hover-capable fine pointers. Nothing else animates beyond 160ms colour changes on buttons; reduced motion disables the tilt and swaps the faces instantly.
 
 **Key Characteristics:**
-- Gum-grey card-stock ground (light) and stat-ink charcoal ground (dark); printed objects stay identical across schemes.
+- Green-grey card-stock ground (light) and green-charcoal ground (dark); printed objects stay identical across schemes.
 - Rokkitt slab caps for names, headings, labels and buttons; Be Vietnam Pro for reading; JetBrains Mono only for stats, code and data.
-- Navy-over-red double rule ("seam") under every section heading.
+- Deep-forest-over-red double rule ("seam") under every section heading.
 - Numbered tickets (No., year, language, stack) as the metadata voice.
 - One gold element per site: the foil series stamp on the card front.
-- One motion: the card flip.
+- Card-only motion: the flip and a gentle hover tilt.
 
 ## Colors
 
-A printed team palette (blue, navy, red, black ink, one gold) on a neutral card-stock ground that swaps between grey and charcoal.
+A printed Forest & Cardinal team palette (forest green, deep forest, red, black ink, one gold) on a green-tinted card-stock ground that swaps between green-grey and green-charcoal.
 
 ### Primary
-- **Team Navy** (print-navy / heading / rule): headings, the header's top border, primary buttons in light scheme, the contact band, the portrait border and position disc. In dark scheme the heading and rule roles move to warm paper and graphite, but the printed navy stays on the card and contact band.
-- **Dodger Blue** (print-blue / link): the card front's team border, link colour in light scheme, primary button hover, text selection background.
+- **Deep Forest** (print-deep / heading / rule): headings, the header's top border, primary buttons in light scheme, the contact band, the portrait border and position disc. In dark scheme the heading and rule roles move to warm paper and graphite, but the printed deep forest stays on the card and contact band.
+- **Forest Green** (print-team): the card front's team border, primary button hover, text selection background.
+- **Forest Link** (link, dark: link-dark **Night Link Green**): link colour; a darker forest (light) and a pale green (dark) than the print green, for text contrast.
 
 ### Secondary
 - **Cardinal Red** (print-red / rule-accent): the card's name band, the red half of the seam, list markers, nav and title underline accents, the focus ring, the contact band's top border, and the primary button fill in dark scheme. It is a fill and rule colour, not a small-text colour.
@@ -157,10 +158,10 @@ A printed team palette (blue, navy, red, black ink, one gold) on a neutral card-
 - **Rookie Foil Gold** (print-gold): the diagonal series stamp on the card front's top corner. Nowhere else.
 
 ### Neutral
-- **Gum-Grey Stock** (ground) and **Stock Shadow** (ground-deep): page ground; ground-deep for inline code, plate hover and scrollbar track.
-- **Stat-Ink Charcoal** (ground-dark, ground-deep-dark): the dark scheme ground and its deeper well.
+- **Green-Grey Stock** (ground) and **Stock Shadow** (ground-deep): page ground; ground-deep for inline code, plate hover and scrollbar track.
+- **Green-Charcoal** (ground-dark, ground-deep-dark): the dark scheme ground and its deeper well.
 - **Press Black** (text / print-ink) and **Worn Ink** (text-soft): body text and secondary text (tickets, ledes, meta, footer). Dark scheme uses **Warm Paper** (text-dark) and **Faded Paper** (text-soft-dark).
-- **Card White** (print-white): card front frame, text on navy and red, code block ground in light scheme.
+- **Card White** (print-white): card front frame, text on deep forest and red, code block ground in light scheme.
 - **Back Stock** (print-stock): the card back's stock.
 - **Graphite Rule** (rule-dark): rules and dividers in dark scheme.
 
@@ -205,8 +206,8 @@ At 880px the hero and split grids collapse to one column with the card centred; 
 Flat by default. The page uses rules and seams for structure, with no surface shadows. The one exception is the player card, which is a physical object lifted off the stock: a soft two-layer cast shadow and a slight -2.5deg rotation, plus a hairline shadow under the foil stamp so it reads as applied to the card.
 
 ### Shadow Vocabulary
-- **Card cast** (`box-shadow: 0 2px 3px rgb(10 14 25 / 0.18), 0 22px 44px -14px rgb(10 14 25 / 0.5)`): player card faces only.
-- **Foil seat** (`box-shadow: 0 1px 3px rgb(10 14 25 / 0.35)`): the foil stamp only.
+- **Card cast** (`box-shadow: 0 2px 3px rgb(10 22 14 / 0.18), 0 22px 44px -14px rgb(10 22 14 / 0.5)`): player card faces only.
+- **Foil seat** (`box-shadow: 0 1px 3px rgb(10 22 14 / 0.35)`): the foil stamp only.
 - **Plate keyline** (`box-shadow: inset 0 0 0 2px var(--print-white)`): an inner printed keyline on the primary button, not a depth cue.
 
 ### Named Rules
@@ -214,22 +215,22 @@ Flat by default. The page uses rules and seams for structure, with no surface sh
 
 ## Shapes
 
-Gentle printed-plate corners: 6px on buttons and the language plate, 8px on code blocks, 10px on the dashed empty-state sleeve, 4px on inline code. The card uses container-relative radii (4.5cqi outer, 2cqi inner frame) and a 5:7 portrait ratio. The position disc is the one circle, ringed white then navy. Borders are 2px on interactive plates, 1px for row rules, 3px+1px for the seam, 8px navy on the header's top edge.
+Gentle printed-plate corners: 6px on buttons and the language plate, 8px on code blocks, 10px on the dashed empty-state sleeve, 4px on inline code. The card uses container-relative radii (4.5cqi outer, 2cqi inner frame) and a 5:7 portrait ratio. The position disc is the one circle, ringed white then deep forest. Borders are 2px on interactive plates, 1px for row rules, 3px+1px for the seam, 8px deep forest on the header's top edge.
 
 ## Components
 
 ### Buttons
 Printed plates with an inner keyline.
-- **Shape:** 6px corners, 2px navy border, 48px minimum height.
-- **Primary:** navy fill, card-white slab caps (800, 1.125rem, 0.06em), with an inset 2px white keyline. In dark scheme the fill and border become print red.
-- **Hover / Focus:** primary hover goes to dodger blue (dark: a lighter red); colour transitions at 160ms. Focus is a 3px rule-accent outline offset 3px.
+- **Shape:** 6px corners, 2px deep-forest border, 48px minimum height.
+- **Primary:** deep-forest fill, card-white slab caps (800, 1.125rem, 0.06em), with an inset 2px white keyline. In dark scheme the fill and border become print red.
+- **Hover / Focus:** primary hover goes to forest green (dark: a lighter red); colour transitions at 160ms. Focus is a 3px rule-accent outline offset 3px.
 - **Secondary:** transparent with a heading-colour border and text; hover inverts to a heading fill with ground text. Icons are inline 18px SVG in currentColor.
 
 ### Language Plate
 A two-cell EN/VI plate: a 2px heading-colour border, 6px corners, slab caps. The active cell is filled with heading colour; the inactive cell is a link with a ground-deep hover; a missing translation dims to 0.45 opacity.
 
 ### Navigation
-Header with an 8px navy top border and a 72px row: lowercase wordmark (Rokkitt 900, 1.75rem) on the left; uppercase slab-caps links (700, 1.125rem, 0.08em) and the language plate on the right. Hover and current page get a 3px rule-accent underline offset 8px. Footer: a 2px rule above, label type in text-soft.
+Header with an 8px deep-forest top border and a 72px row: lowercase wordmark (Rokkitt 900, 1.75rem) on the left; uppercase slab-caps links (700, 1.125rem, 0.08em) and the language plate on the right. Hover and current page get a 3px rule-accent underline offset 8px. Footer: a 2px rule above, label type in text-soft.
 
 ### Ticket
 The set's metadata voice: a wrapping row of uppercase slab-caps items (700, 0.95rem, 0.08em) in text-soft, with the card number in red-text. Used under the hero name, post titles, the Now title and Now entries.
@@ -242,17 +243,17 @@ Posts as numbered set entries: a 4.5rem number column (Rokkitt 900, 1.75rem, red
 
 ### Player Card (signature)
 A 5:7 portrait trading card, rotated -2.5deg, sized to min(440px, 86vw, 70svh scaled).
-- **Front:** dodger-blue border, card-white frame, navy-bordered portrait, red name band with the name in Rokkitt 900 caps and a city teamline, the navy SWE disc overlapping the band, and the gold foil series stamp across the top-left corner.
+- **Front:** forest-green border, card-white frame, deep-forest-bordered portrait, red name band with the name in Rokkitt 900 caps and a city teamline, the deep-forest SWE disc overlapping the band, and the gold foil series stamp across the top-left corner.
 - **Back:** back-stock face with a black ink keyline frame, a black header strip (number, name, position), a bio list, and a ruled monospace seasons table with a bold current row, a red RC rookie mark, and a career footer row.
-- **Behaviour:** clicking the card or the Flip button rotates it 180deg on Y over 900ms with ease-out (cubic-bezier(0.16, 1, 0.3, 1)); the hidden face is inert. Reduced motion swaps instantly. Without JS both faces stack and the card is unrotated.
+- **Behaviour:** clicking the card or the Flip button rotates it 180deg on Y over 900ms with ease-out (cubic-bezier(0.16, 1, 0.3, 1)); the hidden face is inert. Reduced motion swaps instantly. Without JS both faces stack and the card is unrotated. On hover (fine pointer only) the card tilts toward the pointer up to 6deg on X/Y (140ms follow, 700ms ease-out return) with a soft-light glare at the pointer.
 
 ### Contact Band
-A full-bleed print-navy band with a 6px print-red top border, a white headline, and the email address in Rokkitt 900 at up to 4.5rem with a thick light-red underline.
+A full-bleed print-deep band with a 6px print-red top border, a white headline, and the email address in Rokkitt 900 at up to 4.5rem with a thick light-red underline.
 
 ## Do's and Don'ts
 
 ### Do:
-- **Do** sit every section heading on the seam (navy 3px over red 1px).
+- **Do** sit every section heading on the seam (deep forest 3px over red 1px).
 - **Do** keep print-* colours fixed across schemes; only ground, text, link, heading and rule tokens swap.
 - **Do** use red-text for any red text under headline size, and rule-accent for markers, underlines and focus rings.
 - **Do** set metadata as a ticket below the heading, in uppercase Rokkitt with 0.08em tracking.
@@ -261,8 +262,8 @@ A full-bleed print-navy band with a 6px print-red top border, a white headline, 
 
 ### Don't:
 - **Don't** use gold anywhere except the card's foil series stamp.
-- **Don't** add motion beyond the card flip and 160ms colour transitions.
+- **Don't** add motion beyond the card's flip and hover tilt and 160ms colour transitions.
 - **Don't** put an eyebrow or kicker above a heading.
 - **Don't** use JetBrains Mono for labels, nav or metadata; it is for stat tables, code and data.
-- **Don't** use a cream or warm off-white page ground; the stock is gum grey, and charcoal at night.
+- **Don't** use a cream or warm off-white page ground; the stock is green-grey, and green charcoal at night.
 - **Don't** give anything other than the player card a shadow or a boxed card treatment.

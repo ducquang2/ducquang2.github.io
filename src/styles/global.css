@@ -1,18 +1,18 @@
 :root {
-  /* Page ground: gum-grey card stock. */
-  --ground: #cdc8bc;
-  --ground-deep: #bfb9ab;
+  /* Page ground: green-grey card stock. */
+  --ground: #c8cbbd;
+  --ground-deep: #b9bdad;
   --text: #151515;
-  --text-soft: #3d3a34;
-  --link: #1d4f91;
-  --heading: #12305c;
-  --rule: #12305c;
+  --text-soft: #353a33;
+  --link: #17532f;
+  --heading: #12381f;
+  --rule: #12381f;
   --rule-accent: #b3242b;
   --red-text: #9a1c22;
 
   /* Printed card colours: identical in both themes, cards are objects. */
-  --print-blue: #1d4f91;
-  --print-navy: #12305c;
+  --print-team: #1f6b3f;
+  --print-deep: #12381f;
   --print-red: #b3242b;
   --print-white: #f7f5f0;
   --print-stock: #dcd7ca;
@@ -32,14 +32,14 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    /* Stat-ink charcoal: the card stock at night, printed cards unchanged. */
-    --ground: #1c1b19;
-    --ground-deep: #131211;
+    /* Green-charcoal: the card stock at night, printed cards unchanged. */
+    --ground: #1a1c19;
+    --ground-deep: #121411;
     --text: #ece8de;
-    --text-soft: #b8b3a6;
-    --link: #9cbcec;
+    --text-soft: #b5b8ab;
+    --link: #8fd0a5;
     --heading: #ece8de;
-    --rule: #57534b;
+    --rule: #515a50;
     --rule-accent: #d4545a;
     --red-text: #e0666b;
     color-scheme: dark;
@@ -68,7 +68,7 @@ body {
 }
 
 ::selection {
-  background: var(--print-blue);
+  background: var(--print-team);
   color: var(--print-white);
 }
 
@@ -167,7 +167,7 @@ table {
   gap: 10px;
   min-height: 48px;
   padding: 10px 20px 9px;
-  border: 2px solid var(--print-navy);
+  border: 2px solid var(--print-deep);
   border-radius: 6px;
   font: 800 1.125rem/1 var(--font-display);
   text-transform: uppercase;
@@ -185,12 +185,12 @@ table {
   flex: none;
 }
 .btn-primary {
-  background: var(--print-navy);
+  background: var(--print-deep);
   color: var(--print-white);
   box-shadow: inset 0 0 0 2px var(--print-white);
 }
 .btn-primary:hover {
-  background: var(--print-blue);
+  background: var(--print-team);
 }
 @media (prefers-color-scheme: dark) {
   .btn-primary {

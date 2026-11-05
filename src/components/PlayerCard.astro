@@ -10,6 +10,7 @@ const s = t[lang];
 
 <div class="player-wrap" data-player>
   <div class="player">
+    <div class="player-tilt">
     <div class="player-inner">
       <section class="face front" aria-label={s.cardFront} data-face="front">
         <div class="front-frame">
@@ -29,6 +30,7 @@ const s = t[lang];
           </div>
         </div>
         <span class="foil"><span>{s.series}</span></span>
+        <span class="glare" aria-hidden="true"></span>
       </section>
 
       <section class="face back" aria-label={s.cardBack} data-face="back">
@@ -83,7 +85,9 @@ const s = t[lang];
           </table>
           <p class="back-stamp">ducquang2 · {s.series}</p>
         </div>
+        <span class="glare" aria-hidden="true"></span>
       </section>
+    </div>
     </div>
   </div>
 
@@ -115,6 +119,33 @@ const s = t[lang];
     };
     btn.addEventListener("click", toggle);
     card.addEventListener("click", toggle);
+
+    // Gentle 3D tilt that follows the pointer, like holding a real card.
+    const canTilt =
+      matchMedia("(hover: hover) and (pointer: fine)").matches &&
+      !matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (!canTilt) return;
+    const MAX = 6; // degrees
+    let frame = 0;
+    card.addEventListener("pointerenter", () => root.classList.add("is-tilting"));
+    card.addEventListener("pointermove", (e) => {
+      cancelAnimationFrame(frame);
+      frame = requestAnimationFrame(() => {
+        const r = card.getBoundingClientRect();
+        const x = Math.min(Math.max((e.clientX - r.left) / r.width, 0), 1);
+        const y = Math.min(Math.max((e.clientY - r.top) / r.height, 0), 1);
+        root.style.setProperty("--ry", `${((x - 0.5) * 2 * MAX).toFixed(2)}deg`);
+        root.style.setProperty("--rx", `${((0.5 - y) * 2 * MAX).toFixed(2)}deg`);
+        root.style.setProperty("--gx", `${(x * 100).toFixed(1)}%`);
+        root.style.setProperty("--gy", `${(y * 100).toFixed(1)}%`);
+      });
+    });
+    card.addEventListener("pointerleave", () => {
+      cancelAnimationFrame(frame);
+      root.classList.remove("is-tilting");
+      root.style.setProperty("--rx", "0deg");
+      root.style.setProperty("--ry", "0deg");
+    });
   });
 </script>
 
@@ -135,6 +166,32 @@ const s = t[lang];
   :global(.js) .player {
     cursor: pointer;
   }
+  .player-tilt {
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transform: rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg));
+    transition: transform 700ms var(--ease-out);
+  }
+  .is-tilting .player-tilt {
+    transition-duration: 140ms;
+  }
+  .glare {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: radial-gradient(
+      circle at var(--gx, 50%) var(--gy, 50%),
+      rgb(255 255 255 / 0.28),
+      rgb(255 255 255 / 0) 55%
+    );
+    mix-blend-mode: soft-light;
+    opacity: 0;
+    transition: opacity 500ms var(--ease-out);
+  }
+  .is-tilting .glare {
+    opacity: 1;
+  }
   .player-inner {
     position: relative;
     width: 100%;
@@ -153,13 +210,13 @@ const s = t[lang];
     -webkit-backface-visibility: hidden;
     overflow: hidden;
     box-shadow:
-      0 2px 3px rgb(10 14 25 / 0.18),
-      0 22px 44px -14px rgb(10 14 25 / 0.5);
+      0 2px 3px rgb(10 22 14 / 0.18),
+      0 22px 44px -14px rgb(10 22 14 / 0.5);
   }
 
   /* Front: team-blue border, white keyline, portrait, red name band. */
   .front {
-    background: var(--print-blue);
+    background: var(--print-team);
     padding: 5.5cqi;
   }
   .front-frame {
@@ -173,9 +230,9 @@ const s = t[lang];
   }
   .portrait {
     overflow: hidden;
-    border: 0.8cqi solid var(--print-navy);
+    border: 0.8cqi solid var(--print-deep);
     border-bottom: 0;
-    background: var(--print-navy);
+    background: var(--print-deep);
   }
   .portrait img {
     width: 100%;
@@ -209,11 +266,11 @@ const s = t[lang];
     border-radius: 50%;
     display: grid;
     place-items: center;
-    background: var(--print-navy);
+    background: var(--print-deep);
     color: var(--print-white);
     box-shadow:
       0 0 0 1.2cqi var(--print-white),
-      0 0 0 1.8cqi var(--print-navy);
+      0 0 0 1.8cqi var(--print-deep);
     font: 800 6cqi/1 var(--font-display);
     letter-spacing: 0.02em;
   }
@@ -225,12 +282,12 @@ const s = t[lang];
     rotate: -45deg;
     text-align: center;
     background: var(--print-gold);
-    color: var(--print-navy);
+    color: var(--print-deep);
     padding: 1.6cqi 0 1.3cqi;
     font: 800 3.8cqi/1 var(--font-display);
     text-transform: uppercase;
     letter-spacing: 0.16em;
-    box-shadow: 0 1px 3px rgb(10 14 25 / 0.35);
+    box-shadow: 0 1px 3px rgb(10 22 14 / 0.35);
   }
 
   /* Back: card stock, black stat ink. */
@@ -322,7 +379,7 @@ const s = t[lang];
     border-top: 0.5cqi solid var(--print-ink);
     font-weight: 700;
     text-transform: uppercase;
-    padding-top: 1.4cqi;
+    padding-top: 3cqi;
   }
   .stats tfoot th {
     white-space: nowrap;
@@ -335,7 +392,7 @@ const s = t[lang];
     margin: auto 0 0;
     text-align: center;
     font: 900 5cqi/1 var(--font-display);
-    color: var(--print-navy);
+    color: var(--print-deep);
     text-transform: uppercase;
     letter-spacing: 0.06em;
   }
@@ -356,7 +413,8 @@ const s = t[lang];
   }
 
   @media (prefers-reduced-motion: reduce) {
-    .player-inner {
+    .player-inner,
+    .player-tilt {
       transition: none;
     }
   }

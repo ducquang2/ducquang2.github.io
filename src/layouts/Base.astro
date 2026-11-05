@@ -41,7 +41,7 @@ const current = (p: string) => (path === p || path.startsWith(p) ? "page" : unde
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description ?? s.metaDesc} />
     <meta property="og:image" content={`${links.avatar}?v=4`} />
-    <meta name="theme-color" content="#12305c" />
+    <meta name="theme-color" content="#12381f" />
     <link rel="icon" href={`${links.avatar}?s=64&v=4`} />
     <script is:inline>document.documentElement.classList.add("js");</script>
   </head>
@@ -96,7 +96,7 @@ const current = (p: string) => (path === p || path.startsWith(p) ? "page" : unde
     top: 16px;
   }
   .site-head {
-    border-top: 8px solid var(--print-navy);
+    border-top: 8px solid var(--print-deep);
   }
   .head-row {
     display: flex;
