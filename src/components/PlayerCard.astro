@@ -1,0 +1,363 @@
+---
+import { t, seasons, links, type Lang } from "../i18n";
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const s = t[lang];
+---
+
+<div class="player-wrap" data-player>
+  <div class="player">
+    <div class="player-inner">
+      <section class="face front" aria-label={s.cardFront} data-face="front">
+        <div class="front-frame">
+          <div class="portrait">
+            <img
+              src={`${links.avatar}?s=640&v=4`}
+              alt="Duc Quang"
+              width="640"
+              height="640"
+              fetchpriority="high"
+            />
+          </div>
+          <div class="nameband">
+            <span class="name">Duc Quang</span>
+            <span class="teamline">{s.teamLine}</span>
+            <span class="disc" title={s.position}>SWE</span>
+          </div>
+        </div>
+        <span class="foil"><span>{s.series}</span></span>
+      </section>
+
+      <section class="face back" aria-label={s.cardBack} data-face="back">
+        <div class="back-frame">
+          <p class="back-head">
+            <span>002</span>
+            <span>Duc Quang</span>
+            <span>SWE</span>
+          </p>
+          <dl class="bio">
+            {
+              s.bio.map(([k, v]) => (
+                <div>
+                  <dt>{k}</dt>
+                  <dd>{v}</dd>
+                </div>
+              ))
+            }
+          </dl>
+          <table class="stats">
+            <thead>
+              <tr>
+                <th scope="col">{s.th.yr}</th>
+                <th scope="col">{s.th.team}</th>
+                <th scope="col">{s.th.pos}</th>
+              </tr>
+            </thead>
+            <tbody>
+              {
+                seasons.map((r) => (
+                  <tr class:list={{ current: r.current, rookie: r.rookie }}>
+                    <td>{r.yr}</td>
+                    <td>
+                      {r.team}
+                      {r.rookie && (
+                        <abbr class="rc" title={s.rookie}>
+                          RC
+                        </abbr>
+                      )}
+                    </td>
+                    <td>{r.pos[lang]}</td>
+                  </tr>
+                ))
+              }
+            </tbody>
+            <tfoot>
+              <tr>
+                <th scope="row">{s.career}</th>
+                <td colspan="2">{s.careerVal}</td>
+              </tr>
+            </tfoot>
+          </table>
+          <p class="back-stamp">ducquang2 · {s.series}</p>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <button class="flip btn btn-secondary" type="button" aria-pressed="false" data-flip hidden>
+    <svg viewBox="0 0 24 24" aria-hidden="true"
+      ><path
+        d="M12 4a8 8 0 0 1 7.75 6h-2.1A6 6 0 0 0 6.34 8.34L8.5 10.5H3v-5.5l1.92 1.92A7.98 7.98 0 0 1 12 4Zm-7.75 10h2.1a6 6 0 0 0 11.31 1.66L15.5 13.5H21v5.5l-1.92-1.92A8 8 0 0 1 4.25 14Z"
+      ></path></svg
+    >
+    <span data-flip-label>{s.flip}</span>
+  </button>
+</div>
+
+<script define:vars={{ flip: s.flip, flipBack: s.flipBack }}>
+  document.querySelectorAll("[data-player]").forEach((root) => {
+    const btn = root.querySelector("[data-flip]");
+    const label = root.querySelector("[data-flip-label]");
+    const front = root.querySelector('[data-face="front"]');
+    const back = root.querySelector('[data-face="back"]');
+    const card = root.querySelector(".player");
+    btn.hidden = false;
+    back.inert = true;
+    const toggle = () => {
+      const flipped = root.classList.toggle("is-flipped");
+      btn.setAttribute("aria-pressed", String(flipped));
+      label.textContent = flipped ? flipBack : flip;
+      front.inert = flipped;
+      back.inert = !flipped;
+    };
+    btn.addEventListener("click", toggle);
+    card.addEventListener("click", toggle);
+  });
+</script>
+
+<style>
+  .player-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 28px;
+  }
+  .player {
+    width: min(440px, 86vw, calc(min(70svh, 640px) * 5 / 7));
+    aspect-ratio: 5 / 7;
+    perspective: 1800px;
+    rotate: -2.5deg;
+    container-type: inline-size;
+  }
+  :global(.js) .player {
+    cursor: pointer;
+  }
+  .player-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform 900ms var(--ease-out);
+  }
+  .is-flipped .player-inner {
+    transform: rotateY(180deg);
+  }
+  .face {
+    position: absolute;
+    inset: 0;
+    border-radius: 4.5cqi;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    overflow: hidden;
+    box-shadow:
+      0 2px 3px rgb(10 14 25 / 0.18),
+      0 22px 44px -14px rgb(10 14 25 / 0.5);
+  }
+
+  /* Front: team-blue border, white keyline, portrait, red name band. */
+  .front {
+    background: var(--print-blue);
+    padding: 5.5cqi;
+  }
+  .front-frame {
+    position: relative;
+    height: 100%;
+    background: var(--print-white);
+    padding: 2.2cqi;
+    border-radius: 2cqi;
+    display: grid;
+    grid-template-rows: 1fr auto;
+  }
+  .portrait {
+    overflow: hidden;
+    border: 0.8cqi solid var(--print-navy);
+    border-bottom: 0;
+    background: var(--print-navy);
+  }
+  .portrait img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .nameband {
+    background: var(--print-red);
+    color: var(--print-white);
+    padding: 3cqi 4cqi 3.2cqi;
+    position: relative;
+    display: grid;
+    gap: 1.2cqi;
+  }
+  .name {
+    font: 900 13cqi/0.86 var(--font-display);
+    text-transform: uppercase;
+    letter-spacing: -0.01em;
+  }
+  .teamline {
+    font: 800 4cqi/1 var(--font-display);
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+  }
+  .disc {
+    position: absolute;
+    right: 3.5cqi;
+    top: -12cqi;
+    width: 19cqi;
+    height: 19cqi;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    background: var(--print-navy);
+    color: var(--print-white);
+    box-shadow:
+      0 0 0 1.2cqi var(--print-white),
+      0 0 0 1.8cqi var(--print-navy);
+    font: 800 6cqi/1 var(--font-display);
+    letter-spacing: 0.02em;
+  }
+  .foil {
+    position: absolute;
+    top: 8cqi;
+    left: -15cqi;
+    width: 64cqi;
+    rotate: -45deg;
+    text-align: center;
+    background: var(--print-gold);
+    color: var(--print-navy);
+    padding: 1.6cqi 0 1.3cqi;
+    font: 800 3.8cqi/1 var(--font-display);
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    box-shadow: 0 1px 3px rgb(10 14 25 / 0.35);
+  }
+
+  /* Back: card stock, black stat ink. */
+  .back {
+    transform: rotateY(180deg);
+    background: var(--print-stock);
+    color: var(--print-ink);
+    padding: 5cqi;
+  }
+  .back-frame {
+    height: 100%;
+    border: 0.6cqi solid var(--print-ink);
+    border-radius: 2cqi;
+    padding: 4cqi;
+    display: flex;
+    flex-direction: column;
+    gap: 5cqi;
+    font-family: var(--font-stat);
+    font-size: max(11px, 3.6cqi);
+    line-height: 1.4;
+  }
+  .back-head {
+    margin: 0;
+    display: flex;
+    justify-content: space-between;
+    background: var(--print-ink);
+    color: var(--print-white);
+    padding: 2cqi 3cqi 1.6cqi;
+    font: 900 6cqi/1 var(--font-display);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+  .bio {
+    margin: 0;
+    display: grid;
+    gap: 0.6cqi;
+  }
+  .bio div {
+    display: flex;
+    gap: 2cqi;
+  }
+  .bio dt {
+    flex: 0 0 25cqi;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+  .bio dd {
+    margin: 0;
+  }
+  .stats {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  .stats th,
+  .stats td {
+    text-align: left;
+    padding: 1.7cqi 1.2cqi 1.7cqi 0;
+    vertical-align: top;
+  }
+  .stats thead th {
+    border-bottom: 0.5cqi solid var(--print-ink);
+    font-weight: 700;
+  }
+  .stats tbody tr + tr td {
+    border-top: 1px solid rgb(21 21 21 / 0.25);
+  }
+  .stats td:first-child,
+  .stats th:first-child {
+    width: 16cqi;
+  }
+  .stats td:last-child,
+  .stats thead th:last-child {
+    text-align: right;
+    padding-right: 0;
+    white-space: nowrap;
+  }
+  .stats tr.current td {
+    font-weight: 700;
+  }
+  .rc {
+    margin-left: 1.5cqi;
+    color: var(--print-red);
+    font-weight: 700;
+    text-decoration: none;
+    border-bottom: 1px dotted currentColor;
+  }
+  .stats tfoot th,
+  .stats tfoot td {
+    border-top: 0.5cqi solid var(--print-ink);
+    font-weight: 700;
+    text-transform: uppercase;
+    padding-top: 1.4cqi;
+  }
+  .stats tfoot th {
+    white-space: nowrap;
+  }
+  .stats tfoot td {
+    text-align: right;
+    text-transform: none;
+  }
+  .back-stamp {
+    margin: auto 0 0;
+    text-align: center;
+    font: 900 5cqi/1 var(--font-display);
+    color: var(--print-navy);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+
+  /* Without JS the card cannot flip: show both faces, stacked. */
+  :global(html:not(.js)) .player {
+    aspect-ratio: auto;
+    rotate: 0deg;
+  }
+  :global(html:not(.js)) .player-inner {
+    display: grid;
+    gap: 24px;
+  }
+  :global(html:not(.js)) .face {
+    position: relative;
+    aspect-ratio: 5 / 7;
+    transform: none;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .player-inner {
+      transition: none;
+    }
+  }
+</style>

@@ -1,0 +1,585 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-05T00:00:00Z",
+  "title": "Design System: ducquang2",
+  "extensions": {
+    "colorMeta": {
+      "ground": {
+        "role": "neutral",
+        "displayName": "Gum-Grey Stock",
+        "canonical": "#cdc8bc",
+        "tonalRamp": [
+          "#0d0b07",
+          "#26241e",
+          "#433f38",
+          "#615d54",
+          "#817d72",
+          "#a29e95",
+          "#c7c4bc",
+          "#f1eee8"
+        ]
+      },
+      "ground-deep": {
+        "role": "neutral",
+        "displayName": "Stock Shadow",
+        "canonical": "#bfb9ab",
+        "tonalRamp": [
+          "#0d0b07",
+          "#27241d",
+          "#433f36",
+          "#625d52",
+          "#827d70",
+          "#a39e93",
+          "#c8c4ba",
+          "#f1eee7"
+        ]
+      },
+      "text": {
+        "role": "neutral",
+        "displayName": "Press Black",
+        "canonical": "#151515",
+        "tonalRamp": [
+          "#0b0b0b",
+          "#242424",
+          "#404040",
+          "#5d5d5d",
+          "#7d7d7d",
+          "#9e9e9e",
+          "#c4c4c4",
+          "#eeeeee"
+        ]
+      },
+      "text-soft": {
+        "role": "neutral",
+        "displayName": "Worn Ink",
+        "canonical": "#3d3a34",
+        "tonalRamp": [
+          "#0c0b09",
+          "#262420",
+          "#423f3b",
+          "#605d57",
+          "#807d76",
+          "#a19e98",
+          "#c6c4bf",
+          "#f0eeea"
+        ]
+      },
+      "link": {
+        "role": "primary",
+        "displayName": "Dodger Blue Link",
+        "canonical": "#1d4f91",
+        "tonalRamp": [
+          "#000923",
+          "#072348",
+          "#1b3f70",
+          "#315e9b",
+          "#4e7ec1",
+          "#76a0db",
+          "#a3c7f8",
+          "#d5f1ff"
+        ]
+      },
+      "heading": {
+        "role": "primary",
+        "displayName": "Team Navy Heading",
+        "canonical": "#12305c",
+        "tonalRamp": [
+          "#020b1d",
+          "#13243e",
+          "#294063",
+          "#415e8a",
+          "#5f7eae",
+          "#84a0ca",
+          "#aec6e9",
+          "#ddf0ff"
+        ]
+      },
+      "rule": {
+        "role": "primary",
+        "displayName": "Navy Rule",
+        "canonical": "#12305c",
+        "tonalRamp": [
+          "#020b1d",
+          "#13243e",
+          "#294063",
+          "#415e8a",
+          "#5f7eae",
+          "#84a0ca",
+          "#aec6e9",
+          "#ddf0ff"
+        ]
+      },
+      "rule-accent": {
+        "role": "secondary",
+        "displayName": "Cardinal Rule",
+        "canonical": "#b3242b",
+        "tonalRamp": [
+          "#260000",
+          "#4d0004",
+          "#780f17",
+          "#a6282b",
+          "#cf4948",
+          "#ea7771",
+          "#ffa69e",
+          "#ffd8d2"
+        ]
+      },
+      "red-text": {
+        "role": "secondary",
+        "displayName": "Red Text",
+        "canonical": "#9a1c22",
+        "tonalRamp": [
+          "#230000",
+          "#4a0207",
+          "#731a1b",
+          "#a03131",
+          "#c8514d",
+          "#e47c75",
+          "#ffa9a2",
+          "#ffdbd4"
+        ]
+      },
+      "ground-dark": {
+        "role": "neutral",
+        "displayName": "Stat-Ink Charcoal",
+        "canonical": "#1c1b19",
+        "tonalRamp": [
+          "#0b0b0a",
+          "#252423",
+          "#40403e",
+          "#5e5d5b",
+          "#7e7d7b",
+          "#9f9e9c",
+          "#c5c4c2",
+          "#efeeed"
+        ]
+      },
+      "ground-deep-dark": {
+        "role": "neutral",
+        "displayName": "Charcoal Well",
+        "canonical": "#131211",
+        "tonalRamp": [
+          "#0b0b0b",
+          "#242423",
+          "#403f3f",
+          "#5e5d5c",
+          "#7e7d7c",
+          "#9f9e9d",
+          "#c5c4c3",
+          "#efeeed"
+        ]
+      },
+      "text-dark": {
+        "role": "neutral",
+        "displayName": "Warm Paper",
+        "canonical": "#ece8de",
+        "tonalRamp": [
+          "#0c0b08",
+          "#26241f",
+          "#424039",
+          "#605d56",
+          "#807d74",
+          "#a19e97",
+          "#c6c4bd",
+          "#f0eee9"
+        ]
+      },
+      "text-soft-dark": {
+        "role": "neutral",
+        "displayName": "Faded Paper",
+        "canonical": "#b8b3a6",
+        "tonalRamp": [
+          "#0d0b07",
+          "#26241d",
+          "#433f37",
+          "#615d53",
+          "#817d71",
+          "#a29e94",
+          "#c7c4bb",
+          "#f1eee8"
+        ]
+      },
+      "link-dark": {
+        "role": "primary",
+        "displayName": "Night Link Blue",
+        "canonical": "#9cbcec",
+        "tonalRamp": [
+          "#030b1b",
+          "#15243b",
+          "#2c405f",
+          "#455e85",
+          "#627fa9",
+          "#87a0c6",
+          "#b0c6e5",
+          "#dff0ff"
+        ]
+      },
+      "heading-dark": {
+        "role": "neutral",
+        "displayName": "Warm Paper Heading",
+        "canonical": "#ece8de",
+        "tonalRamp": [
+          "#0c0b08",
+          "#26241f",
+          "#424039",
+          "#605d56",
+          "#807d74",
+          "#a19e97",
+          "#c6c4bd",
+          "#f0eee9"
+        ]
+      },
+      "rule-dark": {
+        "role": "neutral",
+        "displayName": "Graphite Rule",
+        "canonical": "#57534b",
+        "tonalRamp": [
+          "#0c0b08",
+          "#26241f",
+          "#423f39",
+          "#615d56",
+          "#817d75",
+          "#a29e97",
+          "#c7c4be",
+          "#f0eee9"
+        ]
+      },
+      "rule-accent-dark": {
+        "role": "secondary",
+        "displayName": "Night Cardinal Rule",
+        "canonical": "#d4545a",
+        "tonalRamp": [
+          "#230001",
+          "#4a020d",
+          "#731822",
+          "#a03039",
+          "#c85055",
+          "#e47b7c",
+          "#ffa8a7",
+          "#ffdad8"
+        ]
+      },
+      "red-text-dark": {
+        "role": "secondary",
+        "displayName": "Night Red Text",
+        "canonical": "#e0666b",
+        "tonalRamp": [
+          "#220001",
+          "#48050f",
+          "#711c25",
+          "#9d343c",
+          "#c45359",
+          "#e17d7f",
+          "#ffaaaa",
+          "#ffdbda"
+        ]
+      },
+      "print-blue": {
+        "role": "primary",
+        "displayName": "Dodger Blue",
+        "canonical": "#1d4f91",
+        "tonalRamp": [
+          "#000923",
+          "#072348",
+          "#1b3f70",
+          "#315e9b",
+          "#4e7ec1",
+          "#76a0db",
+          "#a3c7f8",
+          "#d5f1ff"
+        ]
+      },
+      "print-navy": {
+        "role": "primary",
+        "displayName": "Team Navy",
+        "canonical": "#12305c",
+        "tonalRamp": [
+          "#020b1d",
+          "#13243e",
+          "#294063",
+          "#415e8a",
+          "#5f7eae",
+          "#84a0ca",
+          "#aec6e9",
+          "#ddf0ff"
+        ]
+      },
+      "print-red": {
+        "role": "secondary",
+        "displayName": "Cardinal Red",
+        "canonical": "#b3242b",
+        "tonalRamp": [
+          "#260000",
+          "#4d0004",
+          "#780f17",
+          "#a6282b",
+          "#cf4948",
+          "#ea7771",
+          "#ffa69e",
+          "#ffd8d2"
+        ]
+      },
+      "print-white": {
+        "role": "neutral",
+        "displayName": "Card White",
+        "canonical": "#f7f5f0",
+        "tonalRamp": [
+          "#0c0b0a",
+          "#252422",
+          "#41403d",
+          "#5f5d5a",
+          "#7f7d79",
+          "#a09e9a",
+          "#c5c4c1",
+          "#efeeec"
+        ]
+      },
+      "print-stock": {
+        "role": "neutral",
+        "displayName": "Back Stock",
+        "canonical": "#dcd7ca",
+        "tonalRamp": [
+          "#0d0b07",
+          "#26241e",
+          "#433f37",
+          "#615d53",
+          "#817d72",
+          "#a29e94",
+          "#c7c4bb",
+          "#f1eee8"
+        ]
+      },
+      "print-ink": {
+        "role": "neutral",
+        "displayName": "Press Black Ink",
+        "canonical": "#151515",
+        "tonalRamp": [
+          "#0b0b0b",
+          "#242424",
+          "#404040",
+          "#5d5d5d",
+          "#7d7d7d",
+          "#9e9e9e",
+          "#c4c4c4",
+          "#eeeeee"
+        ]
+      },
+      "print-gold": {
+        "role": "tertiary",
+        "displayName": "Rookie Foil Gold",
+        "canonical": "#c9962a",
+        "tonalRamp": [
+          "#180600",
+          "#381d00",
+          "#5a3800",
+          "#7f5400",
+          "#a37400",
+          "#c0974a",
+          "#e1bf83",
+          "#ffebbe"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Hero name and page titles (Blog, Now); Rokkitt 900."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Uppercase section headings sitting on the seam; post titles."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Project names and checklist entry titles."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Reading text in Be Vietnam Pro, 60 to 68ch measure."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Tickets, nav, footer, buttons, meta: uppercase Rokkitt, 0.06 to 0.08em tracking."
+      },
+      "stat": {
+        "displayName": "Stat",
+        "purpose": "JetBrains Mono for stat tables, code and data only."
+      }
+    },
+    "shadows": [
+      {
+        "name": "card-cast",
+        "value": "0 2px 3px rgb(10 14 25 / 0.18), 0 22px 44px -14px rgb(10 14 25 / 0.5)",
+        "purpose": "Player card faces only; the one object lifted off the stock."
+      },
+      {
+        "name": "foil-seat",
+        "value": "0 1px 3px rgb(10 14 25 / 0.35)",
+        "purpose": "Seats the foil series stamp on the card front."
+      },
+      {
+        "name": "plate-keyline",
+        "value": "inset 0 0 0 2px var(--print-white)",
+        "purpose": "Inner printed keyline on the primary button; not a depth cue."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease-out",
+        "value": "cubic-bezier(0.16, 1, 0.3, 1)",
+        "purpose": "Easing for the card flip and button colour changes."
+      },
+      {
+        "name": "card-flip",
+        "value": "transform 900ms var(--ease-out), rotateY(180deg)",
+        "purpose": "The only motion on the site; reduced motion swaps faces instantly."
+      },
+      {
+        "name": "plate-colour",
+        "value": "background-color 160ms, color 160ms",
+        "purpose": "Button hover colour change."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "narrow",
+        "value": "480px"
+      },
+      {
+        "name": "checklist",
+        "value": "640px"
+      },
+      {
+        "name": "blog-head",
+        "value": "760px"
+      },
+      {
+        "name": "stack",
+        "value": "880px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Navy printed plate with an inner white keyline; print red in dark scheme.",
+      "html": "<a class=\"ds-btn ds-btn-primary\" href=\"#\"><svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M3 5h18v14H3V5Zm2 2v.5l7 4.5 7-4.5V7H5Zm14 2.9-7 4.5-7-4.5V17h14V9.9Z\"/></svg>Email me</a>",
+      "css": ".ds-btn { display: inline-flex; align-items: center; gap: 10px; min-height: 48px; padding: 10px 20px 9px; border: 2px solid var(--print-navy, #12305c); border-radius: 6px; font: 800 1.125rem/1 \"Rokkitt\", Rockwell, Georgia, serif; text-transform: uppercase; letter-spacing: 0.06em; text-decoration: none; cursor: pointer; transition: background-color 160ms cubic-bezier(0.16,1,0.3,1), color 160ms cubic-bezier(0.16,1,0.3,1); } .ds-btn svg { width: 18px; height: 18px; fill: currentColor; flex: none; } .ds-btn-primary { background: var(--print-navy, #12305c); color: var(--print-white, #f7f5f0); box-shadow: inset 0 0 0 2px var(--print-white, #f7f5f0); } .ds-btn-primary:hover { background: var(--print-blue, #1d4f91); } .ds-btn:focus-visible { outline: 3px solid var(--rule-accent, #b3242b); outline-offset: 3px; } @media (prefers-color-scheme: dark) { .ds-btn-primary { background: var(--print-red, #b3242b); border-color: var(--print-red, #b3242b); } .ds-btn-primary:hover { background: #c9343b; } }"
+    },
+    {
+      "name": "Secondary Button",
+      "kind": "button",
+      "refersTo": "button-secondary",
+      "description": "Outlined plate in heading colour; inverts on hover. Also the card's Flip button.",
+      "html": "<button class=\"ds-btn2\" type=\"button\"><svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M12 4a8 8 0 0 1 7.75 6h-2.1A6 6 0 0 0 6.34 8.34L8.5 10.5H3v-5.5l1.92 1.92A7.98 7.98 0 0 1 12 4Zm-7.75 10h2.1a6 6 0 0 0 11.31 1.66L15.5 13.5H21v5.5l-1.92-1.92A8 8 0 0 1 4.25 14Z\"/></svg>Flip card</button>",
+      "css": ".ds-btn2 { display: inline-flex; align-items: center; gap: 10px; min-height: 48px; padding: 10px 20px 9px; background: transparent; color: var(--heading, #12305c); border: 2px solid var(--heading, #12305c); border-radius: 6px; font: 800 1.125rem/1 \"Rokkitt\", Rockwell, Georgia, serif; text-transform: uppercase; letter-spacing: 0.06em; cursor: pointer; transition: background-color 160ms cubic-bezier(0.16,1,0.3,1), color 160ms cubic-bezier(0.16,1,0.3,1); } .ds-btn2 svg { width: 18px; height: 18px; fill: currentColor; } .ds-btn2:hover { background: var(--heading, #12305c); color: var(--ground, #cdc8bc); } .ds-btn2:focus-visible { outline: 3px solid var(--rule-accent, #b3242b); outline-offset: 3px; }"
+    },
+    {
+      "name": "Navigation",
+      "kind": "nav",
+      "refersTo": "language-plate",
+      "description": "Header row: wordmark, slab-caps links with red underline on current, EN/VI language plate, seam below.",
+      "html": "<header class=\"ds-head\"><div class=\"ds-row\"><a class=\"ds-mark\" href=\"#\">ducquang2</a><nav class=\"ds-nav\"><a href=\"#\" aria-current=\"page\">Blog</a><a href=\"#\">Now</a><span class=\"ds-plate\"><span class=\"ds-on\">EN</span><a class=\"ds-off\" href=\"#\">VI</a></span></nav></div><hr class=\"ds-seam\"></header>",
+      "css": ".ds-head { border-top: 8px solid var(--print-navy, #12305c); background: var(--ground, #cdc8bc); padding: 0 24px; } .ds-row { display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 72px; } .ds-mark { font: 900 1.75rem/1 \"Rokkitt\", Georgia, serif; color: var(--heading, #12305c); text-decoration: none; letter-spacing: -0.01em; } .ds-nav { display: flex; align-items: center; gap: 28px; } .ds-nav > a { font: 700 1.125rem/1 \"Rokkitt\", Georgia, serif; text-transform: uppercase; letter-spacing: 0.08em; color: var(--heading, #12305c); text-decoration: none; padding: 8px 0; } .ds-nav > a:hover, .ds-nav > a[aria-current=page] { text-decoration: underline; text-decoration-thickness: 3px; text-decoration-color: var(--rule-accent, #b3242b); text-underline-offset: 8px; } .ds-plate { display: inline-flex; border: 2px solid var(--heading, #12305c); border-radius: 6px; overflow: hidden; font: 800 0.95rem/1 \"Rokkitt\", Georgia, serif; letter-spacing: 0.08em; } .ds-plate > * { padding: 8px 10px 7px; min-width: 40px; text-align: center; } .ds-on { background: var(--heading, #12305c); color: var(--ground, #cdc8bc); } .ds-off { color: var(--heading, #12305c); text-decoration: none; } .ds-off:hover { background: var(--ground-deep, #bfb9ab); } .ds-nav a:focus-visible { outline: 3px solid var(--rule-accent, #b3242b); outline-offset: 3px; } .ds-seam { border: 0; height: 6px; margin: 0 -24px; background: linear-gradient(var(--rule, #12305c), var(--rule, #12305c)) top / 100% 3px no-repeat, linear-gradient(var(--rule-accent, #b3242b), var(--rule-accent, #b3242b)) bottom / 100% 1px no-repeat; }"
+    },
+    {
+      "name": "Section Head with Seam",
+      "kind": "custom",
+      "refersTo": "ticket",
+      "description": "Uppercase slab heading with an optional right link, closed by the navy-over-red seam; no eyebrow.",
+      "html": "<div class=\"ds-sec\"><div class=\"ds-sec-head\"><h2>Projects</h2><a href=\"#\">All repositories on GitHub</a></div><hr class=\"ds-seam2\"><p class=\"ds-ticket\"><span class=\"ds-no\">No. 002</span><span>Series 2026</span><span>Software engineer</span></p></div>",
+      "css": ".ds-sec { background: var(--ground, #cdc8bc); padding: 24px; } .ds-sec-head { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; flex-wrap: wrap; padding-bottom: 14px; } .ds-sec-head h2 { margin: 0; font: 800 clamp(2rem, 4.2vw, 3.25rem)/1 \"Rokkitt\", Georgia, serif; color: var(--heading, #12305c); text-transform: uppercase; letter-spacing: 0.01em; } .ds-sec-head a { font: 700 1.05rem/1 \"Rokkitt\", Georgia, serif; text-transform: uppercase; letter-spacing: 0.06em; color: var(--link, #1d4f91); text-decoration-thickness: 1.5px; text-underline-offset: 0.22em; } .ds-sec-head a:hover { text-decoration-thickness: 2.5px; } .ds-sec-head a:focus-visible { outline: 3px solid var(--rule-accent, #b3242b); outline-offset: 3px; } .ds-seam2 { border: 0; height: 6px; margin: 0; background: linear-gradient(var(--rule, #12305c), var(--rule, #12305c)) top / 100% 3px no-repeat, linear-gradient(var(--rule-accent, #b3242b), var(--rule-accent, #b3242b)) bottom / 100% 1px no-repeat; } .ds-ticket { display: flex; flex-wrap: wrap; gap: 4px 14px; margin: 18px 0 0; font: 700 0.95rem/1.3 \"Rokkitt\", Georgia, serif; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-soft, #3d3a34); } .ds-no { color: var(--red-text, #9a1c22); }"
+    },
+    {
+      "name": "Checklist Row",
+      "kind": "custom",
+      "refersTo": "ticket",
+      "description": "A post as a numbered set entry: red number, slab title, description, right-aligned meta, ruled below.",
+      "html": "<ol class=\"ds-check\"><li><span class=\"ds-cno\">001</span><div><h3 class=\"ds-ctitle\"><a href=\"#\">Rebuilding my site in Astro</a></h3><p class=\"ds-cdesc\">Why a single HTML file stopped being enough.</p></div><p class=\"ds-cmeta\"><span>5 Nov 2026</span><span class=\"ds-clang\">EN / VI</span></p></li></ol>",
+      "css": ".ds-check { list-style: none; margin: 0; padding: 0 24px; background: var(--ground, #cdc8bc); } .ds-check li { display: grid; grid-template-columns: 4.5rem minmax(0, 1fr) auto; gap: 6px 24px; align-items: baseline; padding: 22px 0; border-bottom: 1px solid var(--rule, #12305c); } .ds-cno { font: 900 1.75rem/1 \"Rokkitt\", Georgia, serif; color: var(--red-text, #9a1c22); font-variant-numeric: tabular-nums; } .ds-ctitle { margin: 0; font: 800 clamp(1.5rem, 2.6vw, 2rem)/1.05 \"Rokkitt\", Georgia, serif; color: var(--heading, #12305c); } .ds-ctitle a { color: inherit; text-decoration: none; } .ds-ctitle a:hover { text-decoration: underline; text-decoration-color: var(--rule-accent, #b3242b); text-decoration-thickness: 3px; } .ds-ctitle a:focus-visible { outline: 3px solid var(--rule-accent, #b3242b); outline-offset: 3px; } .ds-cdesc { margin: 8px 0 0; color: var(--text-soft, #3d3a34); font: 400 1.0625rem/1.7 \"Be Vietnam Pro\", system-ui, sans-serif; } .ds-cmeta { margin: 0; display: grid; justify-items: end; gap: 4px; font: 700 0.95rem/1.2 \"Rokkitt\", Georgia, serif; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-soft, #3d3a34); white-space: nowrap; } .ds-clang { color: var(--link, #1d4f91); }"
+    },
+    {
+      "name": "Player Card",
+      "kind": "card",
+      "refersTo": "player-card-front",
+      "description": "The signature 5:7 trading card: blue border, white frame, portrait, red name band, SWE disc, gold foil stamp; flips to a monospace stat back.",
+      "html": "<div class=\"ds-card\" tabindex=\"0\"><div class=\"ds-inner\"><div class=\"ds-face ds-front\"><div class=\"ds-frame\"><div class=\"ds-portrait\"></div><div class=\"ds-band\"><span class=\"ds-name\">Duc Quang</span><span class=\"ds-team\">Ho Chi Minh City</span><span class=\"ds-disc\">SWE</span></div></div><span class=\"ds-foil\">Series 2026</span></div><div class=\"ds-face ds-back\"><div class=\"ds-bframe\"><p class=\"ds-bhead\"><span>002</span><span>Duc Quang</span><span>SWE</span></p><table class=\"ds-stats\"><thead><tr><th>Yr</th><th>Team</th><th>Pos</th></tr></thead><tbody><tr><td>2026</td><td>NAB Innovation Centre VN</td><td>SWE</td></tr><tr><td>2020</td><td>Kao Engine <abbr class=\"ds-rc\">RC</abbr></td><td>SWE · PT</td></tr></tbody></table></div></div></div></div>",
+      "css": ".ds-card { width: 260px; aspect-ratio: 5 / 7; perspective: 1800px; rotate: -2.5deg; container-type: inline-size; cursor: pointer; margin: 24px; } .ds-inner { position: relative; width: 100%; height: 100%; transform-style: preserve-3d; transition: transform 900ms cubic-bezier(0.16, 1, 0.3, 1); } .ds-card:hover .ds-inner, .ds-card:focus-visible .ds-inner { transform: rotateY(180deg); } .ds-card:focus-visible { outline: 3px solid var(--rule-accent, #b3242b); outline-offset: 6px; } .ds-face { position: absolute; inset: 0; border-radius: 4.5cqi; backface-visibility: hidden; overflow: hidden; box-shadow: 0 2px 3px rgb(10 14 25 / 0.18), 0 22px 44px -14px rgb(10 14 25 / 0.5); } .ds-front { background: var(--print-blue, #1d4f91); padding: 5.5cqi; } .ds-frame { height: 100%; background: var(--print-white, #f7f5f0); padding: 2.2cqi; border-radius: 2cqi; display: grid; grid-template-rows: 1fr auto; } .ds-portrait { border: 0.8cqi solid var(--print-navy, #12305c); border-bottom: 0; background: var(--print-navy, #12305c); } .ds-band { position: relative; display: grid; gap: 1.2cqi; background: var(--print-red, #b3242b); color: var(--print-white, #f7f5f0); padding: 3cqi 4cqi 3.2cqi; } .ds-name { font: 900 13cqi/0.86 \"Rokkitt\", Georgia, serif; text-transform: uppercase; } .ds-team { font: 800 4cqi/1 \"Rokkitt\", Georgia, serif; text-transform: uppercase; letter-spacing: 0.14em; } .ds-disc { position: absolute; right: 3.5cqi; top: -12cqi; width: 19cqi; height: 19cqi; border-radius: 50%; display: grid; place-items: center; background: var(--print-navy, #12305c); color: var(--print-white, #f7f5f0); box-shadow: 0 0 0 1.2cqi var(--print-white, #f7f5f0), 0 0 0 1.8cqi var(--print-navy, #12305c); font: 800 6cqi/1 \"Rokkitt\", Georgia, serif; } .ds-foil { position: absolute; top: 8cqi; left: -15cqi; width: 64cqi; rotate: -45deg; text-align: center; background: var(--print-gold, #c9962a); color: var(--print-navy, #12305c); padding: 1.6cqi 0 1.3cqi; font: 800 3.8cqi/1 \"Rokkitt\", Georgia, serif; text-transform: uppercase; letter-spacing: 0.16em; box-shadow: 0 1px 3px rgb(10 14 25 / 0.35); } .ds-back { transform: rotateY(180deg); background: var(--print-stock, #dcd7ca); color: var(--print-ink, #151515); padding: 5cqi; } .ds-bframe { height: 100%; border: 0.6cqi solid var(--print-ink, #151515); border-radius: 2cqi; padding: 4cqi; display: flex; flex-direction: column; gap: 5cqi; font: 400 max(11px, 3.6cqi)/1.4 \"JetBrains Mono\", ui-monospace, monospace; } .ds-bhead { margin: 0; display: flex; justify-content: space-between; background: var(--print-ink, #151515); color: var(--print-white, #f7f5f0); padding: 2cqi 3cqi 1.6cqi; font: 900 6cqi/1 \"Rokkitt\", Georgia, serif; text-transform: uppercase; } .ds-stats { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; } .ds-stats th, .ds-stats td { text-align: left; padding: 1.7cqi 1.2cqi 1.7cqi 0; } .ds-stats thead th { border-bottom: 0.5cqi solid var(--print-ink, #151515); } .ds-stats tbody tr + tr td { border-top: 1px solid rgb(21 21 21 / 0.25); } .ds-stats tbody tr:first-child td { font-weight: 700; } .ds-rc { color: var(--print-red, #b3242b); font-weight: 700; text-decoration: none; border-bottom: 1px dotted currentColor; } @media (prefers-reduced-motion: reduce) { .ds-inner { transition: none; } }"
+    },
+    {
+      "name": "Contact Band",
+      "kind": "custom",
+      "refersTo": "contact-band",
+      "description": "Full-bleed printed navy band with a red top border and the email in large slab type.",
+      "html": "<section class=\"ds-contact\"><h2>Get in touch</h2><p>Open to interesting projects and conversations.</p><a href=\"#\">nducquangg@gmail.com</a></section>",
+      "css": ".ds-contact { background: var(--print-navy, #12305c); color: var(--print-white, #f7f5f0); border-top: 6px solid var(--print-red, #b3242b); padding: 56px 24px; } .ds-contact h2 { margin: 0; color: var(--print-white, #f7f5f0); font: 800 clamp(2rem, 4.2vw, 3.25rem)/1 \"Rokkitt\", Georgia, serif; text-transform: uppercase; } .ds-contact p { margin: 16px 0 28px; max-width: 52ch; color: #d9dfea; font: 400 1.0625rem/1.7 \"Be Vietnam Pro\", system-ui, sans-serif; } .ds-contact a { font: 900 clamp(1.9rem, 6vw, 4.5rem)/1 \"Rokkitt\", Georgia, serif; color: var(--print-white, #f7f5f0); text-decoration-color: #e0666b; text-decoration-thickness: 4px; text-underline-offset: 0.18em; overflow-wrap: anywhere; } .ds-contact a:hover { text-decoration-thickness: 6px; } .ds-contact a:focus-visible { outline: 3px solid var(--print-white, #f7f5f0); outline-offset: 3px; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Wax Pack Card",
+    "overview": "The visitor is handed a trading card. Duc is the card: a portrait front with a slab-caps name bar and a position disc, a stat back with his real seasons in ruled monospace, and around it the numbered set it belongs to (projects, Now, posts as checklist entries). Everything on the page is either the card stock it sits on or ink printed in the card set's team colours: dodger blue, navy, cardinal red, black stat ink, and one strip of gold foil.\n\nThe page ground is gum-grey card stock, never cream, and at night it becomes stat-ink charcoal. The printed cards are physical objects: their colours do not change between schemes. Density is set-checklist density: big slab caps, generous rules, numbered rows, short ruled tables. Structure comes from rules and seams, not boxes.\n\nMotion is a single event: the 3D card flip. Nothing else animates beyond 160ms colour changes on buttons, and reduced motion swaps the faces instantly.",
+    "keyCharacteristics": [
+      "Gum-grey card-stock ground (light) and stat-ink charcoal ground (dark); printed objects stay identical across schemes.",
+      "Rokkitt slab caps for names, headings, labels and buttons; Be Vietnam Pro for reading; JetBrains Mono only for stats, code and data.",
+      "Navy-over-red double rule (\"seam\") under every section heading.",
+      "Numbered tickets (No., year, language, stack) as the metadata voice.",
+      "One gold element per site: the foil series stamp on the card front.",
+      "One motion: the card flip."
+    ],
+    "rules": [
+      {
+        "name": "The One Foil Rule",
+        "body": "Gold appears exactly once on the site, on the flat foil series stamp. A second gold element is a counterfeit.",
+        "section": "colors"
+      },
+      {
+        "name": "The Printed Object Rule",
+        "body": "Anything that is a printed card (card faces, contact band) uses the print-* colours and does not change with the colour scheme. Only the ground, text, link, heading and rule roles swap.",
+        "section": "colors"
+      },
+      {
+        "name": "The Red Ink Rule",
+        "body": "Small red text uses red-text only. rule-accent and print-red are for rules, markers, fills and focus rings.",
+        "section": "colors"
+      },
+      {
+        "name": "The Stat Ink Rule",
+        "body": "Monospace is only for stat tables, code and data. Never for labels, metadata or decoration.",
+        "section": "typography"
+      },
+      {
+        "name": "The Heading Stands Alone Rule",
+        "body": "Headings carry no eyebrow or kicker above them. Metadata goes below the heading as a ticket.",
+        "section": "typography"
+      },
+      {
+        "name": "The Ruled Set Rule",
+        "body": "Lists of things (projects, posts) are ruled rows in a checklist, never a grid of boxed cards. The only card on the site is the player card.",
+        "section": "layout"
+      },
+      {
+        "name": "The Only Object Rule",
+        "body": "Only the player card casts a shadow. Everything else is ink on stock.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do sit every section heading on the seam (navy 3px over red 1px).",
+      "Do keep print-* colours fixed across schemes; only ground, text, link, heading and rule tokens swap.",
+      "Do use red-text for any red text under headline size, and rule-accent for markers, underlines and focus rings.",
+      "Do set metadata as a ticket below the heading, in uppercase Rokkitt with 0.08em tracking.",
+      "Do present collections as numbered, ruled checklist rows.",
+      "Do use only real data on the card back (years, teams, roles, stack); never invented numbers."
+    ],
+    "donts": [
+      "Don't use gold anywhere except the card's foil series stamp.",
+      "Don't add motion beyond the card flip and 160ms colour transitions.",
+      "Don't put an eyebrow or kicker above a heading.",
+      "Don't use JetBrains Mono for labels, nav or metadata; it is for stat tables, code and data.",
+      "Don't use a cream or warm off-white page ground; the stock is gum grey, and charcoal at night.",
+      "Don't give anything other than the player card a shadow or a boxed card treatment."
+    ]
+  }
+}

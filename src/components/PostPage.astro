@@ -1,0 +1,190 @@
+---
+import { render } from "astro:content";
+import Base from "../layouts/Base.astro";
+import { t, cardNo, formatDate, localePath, other, type Lang } from "../i18n";
+import type { Post } from "../lib/posts";
+
+interface Props {
+  lang: Lang;
+  post: Post;
+}
+const { lang, post } = Astro.props;
+const s = t[lang];
+const o = other(lang);
+const { Content } = await render(post);
+const path = `/blog/${post.slug}/`;
+---
+
+<Base
+  lang={lang}
+  title={`${post.data.title} · ducquang2`}
+  description={post.data.description}
+  path={path}
+  altPath={post.hasTranslation ? path : null}
+>
+  <article class="wrap post">
+    <header class="post-head">
+      <h1>{post.data.title}</h1>
+      <p class="ticket">
+        <span class="no">{s.no} {cardNo(post.no)}</span>
+        <time datetime={post.data.date.toISOString()}>{formatDate(post.data.date, lang)}</time>
+        {post.data.tags.map((tag) => <span>{tag}</span>)}
+      </p>
+      <p class="lede">{post.data.description}</p>
+      <p class="translation">
+        {
+          post.hasTranslation ? (
+            <a href={localePath(o, path)} hreflang={o} lang={o}>
+              {s.readIn}
+            </a>
+          ) : (
+            <span>{s.missingTranslation}</span>
+          )
+        }
+      </p>
+    </header>
+    <hr class="seam" />
+    <div class="prose">
+      <Content />
+    </div>
+    <p class="back">
+      <a href={localePath(lang, "/blog/")}>{s.backToBlog}</a>
+    </p>
+  </article>
+</Base>
+
+<style>
+  .post {
+    padding-top: clamp(40px, 7vw, 88px);
+  }
+  .post-head {
+    max-width: 52rem;
+    padding-bottom: 24px;
+  }
+  .ticket {
+    margin: 18px 0 0;
+  }
+  h1 {
+    font-weight: 800;
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    line-height: 0.95;
+  }
+  .lede {
+    margin: 20px 0 0;
+    font-size: 1.25rem;
+    line-height: 1.55;
+    color: var(--text-soft);
+    max-width: 58ch;
+  }
+  .translation {
+    margin: 18px 0 0;
+    font: 800 1.05rem/1 var(--font-display);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-soft);
+  }
+  .back {
+    margin: 56px 0 0;
+    font: 800 1.05rem/1 var(--font-display);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  .prose {
+    max-width: 68ch;
+    padding-top: 36px;
+    font-size: 1.125rem;
+    line-height: 1.75;
+  }
+  .prose :global(> * + *) {
+    margin-top: 1.15em;
+  }
+  .prose :global(p),
+  .prose :global(ul),
+  .prose :global(ol),
+  .prose :global(pre),
+  .prose :global(blockquote),
+  .prose :global(table),
+  .prose :global(figure) {
+    margin-bottom: 0;
+  }
+  .prose :global(h2) {
+    margin-top: 2.2em;
+    font-weight: 800;
+    font-size: clamp(1.75rem, 3vw, 2.25rem);
+  }
+  .prose :global(h3) {
+    margin-top: 1.8em;
+    font-weight: 800;
+    font-size: 1.5rem;
+  }
+  .prose :global(h2 + *),
+  .prose :global(h3 + *) {
+    margin-top: 0.6em;
+  }
+  .prose :global(li + li) {
+    margin-top: 0.4em;
+  }
+  .prose :global(li::marker) {
+    color: var(--rule-accent);
+  }
+  .prose :global(strong) {
+    font-weight: 600;
+  }
+  .prose :global(:not(pre) > code) {
+    font: 0.88em var(--font-stat);
+    background: var(--ground-deep);
+    padding: 0.12em 0.36em;
+    border-radius: 4px;
+  }
+  .prose :global(pre) {
+    font: 0.9rem/1.6 var(--font-stat);
+    padding: 20px 22px;
+    border: 2px solid var(--rule);
+    border-radius: 8px;
+    overflow-x: auto;
+    background-color: var(--print-white) !important;
+    margin-inline: 0;
+  }
+  .prose :global(blockquote) {
+    margin-inline: 0;
+    padding: 4px 0 4px 1.4em;
+    border-left: 1px solid var(--rule-accent);
+    font-style: italic;
+    color: var(--text-soft);
+  }
+  .prose :global(table) {
+    width: 100%;
+    border-collapse: collapse;
+    font: 0.95rem/1.5 var(--font-stat);
+    display: block;
+    overflow-x: auto;
+  }
+  .prose :global(th),
+  .prose :global(td) {
+    text-align: left;
+    padding: 8px 16px 8px 0;
+    border-bottom: 1px solid var(--rule);
+  }
+  .prose :global(th) {
+    border-bottom-width: 2px;
+  }
+  .prose :global(img) {
+    border-radius: 6px;
+  }
+  .prose :global(hr) {
+    border: 0;
+    border-top: 1px solid var(--rule);
+    margin-block: 2.5em;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .prose :global(pre) {
+      background-color: var(--ground-deep) !important;
+    }
+    .prose :global(pre),
+    .prose :global(pre span) {
+      color: var(--shiki-dark) !important;
+    }
+  }
+</style>

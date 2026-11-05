@@ -1,0 +1,53 @@
+---
+import Base from "../layouts/Base.astro";
+import PostChecklist from "./PostChecklist.astro";
+import { t, type Lang } from "../i18n";
+import { getPosts } from "../lib/posts";
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const s = t[lang];
+const posts = await getPosts(lang);
+---
+
+<Base lang={lang} title={`${s.blogTitle} · ducquang2`} path="/blog/">
+  <div class="wrap page">
+    <header class="page-head">
+      <h1>{s.blogTitle}</h1>
+      <p class="lede">{s.blogLede}</p>
+    </header>
+    <hr class="seam" />
+    <PostChecklist lang={lang} posts={posts} level="h2" />
+  </div>
+</Base>
+
+<style>
+  .page {
+    padding-top: clamp(40px, 7vw, 88px);
+  }
+  .page-head {
+    display: grid;
+    grid-template-columns: auto minmax(0, 46ch);
+    align-items: end;
+    justify-content: space-between;
+    gap: 16px 48px;
+    padding-bottom: 20px;
+  }
+  h1 {
+    font-weight: 900;
+    font-size: clamp(3.5rem, 9vw, 6rem);
+    text-transform: uppercase;
+    line-height: 0.85;
+  }
+  .lede {
+    margin: 0;
+    color: var(--text-soft);
+  }
+  @media (max-width: 760px) {
+    .page-head {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

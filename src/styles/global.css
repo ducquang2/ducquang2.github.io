@@ -1,0 +1,235 @@
+:root {
+  /* Page ground: gum-grey card stock. */
+  --ground: #cdc8bc;
+  --ground-deep: #bfb9ab;
+  --text: #151515;
+  --text-soft: #3d3a34;
+  --link: #1d4f91;
+  --heading: #12305c;
+  --rule: #12305c;
+  --rule-accent: #b3242b;
+  --red-text: #9a1c22;
+
+  /* Printed card colours: identical in both themes, cards are objects. */
+  --print-blue: #1d4f91;
+  --print-navy: #12305c;
+  --print-red: #b3242b;
+  --print-white: #f7f5f0;
+  --print-stock: #dcd7ca;
+  --print-ink: #151515;
+  --print-gold: #c9962a;
+
+  --font-display: "Rokkitt", Rockwell, "Roboto Slab", Georgia, serif;
+  --font-body: "Be Vietnam Pro", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-stat: "JetBrains Mono", ui-monospace, Menlo, monospace;
+
+  --wrap: 1180px;
+  --gutter: clamp(16px, 4vw, 40px);
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* Stat-ink charcoal: the card stock at night, printed cards unchanged. */
+    --ground: #1c1b19;
+    --ground-deep: #131211;
+    --text: #ece8de;
+    --text-soft: #b8b3a6;
+    --link: #9cbcec;
+    --heading: #ece8de;
+    --rule: #57534b;
+    --rule-accent: #d4545a;
+    --red-text: #e0666b;
+    color-scheme: dark;
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  scrollbar-color: var(--rule) var(--ground-deep);
+}
+
+body {
+  margin: 0;
+  background: var(--ground);
+  color: var(--text);
+  font: 400 1.0625rem/1.7 var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  caret-color: var(--rule-accent);
+}
+
+::selection {
+  background: var(--print-blue);
+  color: var(--print-white);
+}
+
+a {
+  color: var(--link);
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: 0.22em;
+}
+a:hover {
+  text-decoration-thickness: 2.5px;
+}
+
+:focus-visible {
+  outline: 3px solid var(--rule-accent);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-display);
+  color: var(--heading);
+  line-height: 1;
+  text-wrap: balance;
+  margin: 0;
+}
+
+table {
+  font-variant-numeric: tabular-nums;
+}
+
+.wrap {
+  max-width: var(--wrap);
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+}
+
+.visually-hidden {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Double rule (navy over red), the card set's section seam. */
+.seam {
+  border: 0;
+  height: 6px;
+  margin: 0;
+  background:
+    linear-gradient(var(--rule), var(--rule)) top / 100% 3px no-repeat,
+    linear-gradient(var(--rule-accent), var(--rule-accent)) bottom / 100% 1px no-repeat;
+}
+
+/* Section headings sit on the seam. */
+.section {
+  padding-top: clamp(56px, 8vw, 96px);
+}
+.section-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+  padding-bottom: 14px;
+}
+.section-head h2 {
+  font-weight: 800;
+  font-size: clamp(2rem, 4.2vw, 3.25rem);
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+}
+.section-head a {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.05rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+/* Buttons: printed plates with an inner keyline. */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 48px;
+  padding: 10px 20px 9px;
+  border: 2px solid var(--print-navy);
+  border-radius: 6px;
+  font: 800 1.125rem/1 var(--font-display);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  text-decoration: none;
+  cursor: pointer;
+  transition:
+    background-color 160ms var(--ease-out),
+    color 160ms var(--ease-out);
+}
+.btn svg {
+  width: 18px;
+  height: 18px;
+  fill: currentColor;
+  flex: none;
+}
+.btn-primary {
+  background: var(--print-navy);
+  color: var(--print-white);
+  box-shadow: inset 0 0 0 2px var(--print-white);
+}
+.btn-primary:hover {
+  background: var(--print-blue);
+}
+@media (prefers-color-scheme: dark) {
+  .btn-primary {
+    background: var(--print-red);
+    border-color: var(--print-red);
+  }
+  .btn-primary:hover {
+    background: #c9343b;
+  }
+}
+.btn-secondary {
+  background: transparent;
+  color: var(--heading);
+  border-color: var(--heading);
+}
+.btn-secondary:hover {
+  background: var(--heading);
+  color: var(--ground);
+}
+
+/* Small printed ticket: No., year, language, stack. */
+.ticket {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 14px;
+  font: 700 0.95rem/1.3 var(--font-display);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-soft);
+}
+.ticket .no {
+  color: var(--red-text);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "name": "ducquang2-github-io",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview"
+  },
+  "dependencies": {
+    "@fontsource/be-vietnam-pro": "^5.3.0",
+    "@fontsource/jetbrains-mono": "^5.3.0",
+    "@fontsource/rokkitt": "^5.3.0",
+    "astro": "^5.18.2"
+  }
+}

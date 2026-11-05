@@ -1,0 +1,201 @@
+---
+import "@fontsource/rokkitt/700.css";
+import "@fontsource/rokkitt/800.css";
+import "@fontsource/rokkitt/900.css";
+import "@fontsource/be-vietnam-pro/400.css";
+import "@fontsource/be-vietnam-pro/400-italic.css";
+import "@fontsource/be-vietnam-pro/600.css";
+import "@fontsource/jetbrains-mono/400.css";
+import "@fontsource/jetbrains-mono/700.css";
+import "../styles/global.css";
+import { t, links, localePath, other, type Lang } from "../i18n";
+
+interface Props {
+  lang: Lang;
+  title: string;
+  description?: string;
+  /** Path of this page without the language prefix, e.g. "/blog/". */
+  path: string;
+  /** Path of the translation when it differs or may not exist; null hides the switch target. */
+  altPath?: string | null;
+}
+
+const { lang, title, description, path, altPath } = Astro.props;
+const s = t[lang];
+const o = other(lang);
+const alt = altPath === null ? null : localePath(o, altPath ?? path);
+const canonical = new URL(localePath(lang, path), Astro.site);
+const current = (p: string) => (path === p || path.startsWith(p) ? "page" : undefined);
+---
+
+<!doctype html>
+<html lang={lang}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description ?? s.metaDesc} />
+    <link rel="canonical" href={canonical} />
+    <link rel="alternate" hreflang={lang} href={canonical} />
+    {alt && <link rel="alternate" hreflang={o} href={new URL(alt, Astro.site)} />}
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description ?? s.metaDesc} />
+    <meta property="og:image" content={`${links.avatar}?v=4`} />
+    <meta name="theme-color" content="#12305c" />
+    <link rel="icon" href={`${links.avatar}?s=64&v=4`} />
+    <script is:inline>document.documentElement.classList.add("js");</script>
+  </head>
+  <body>
+    <a class="skip btn btn-primary" href="#main">{s.skip}</a>
+    <header class="site-head">
+      <div class="wrap head-row">
+        <a class="wordmark" href={localePath(lang, "/")}>ducquang2</a>
+        <nav aria-label="Primary">
+          <ul>
+            <li><a href={localePath(lang, "/blog/")} aria-current={current("/blog/")}>{s.navBlog}</a></li>
+            <li><a href={localePath(lang, "/now/")} aria-current={current("/now/")}>{s.navNow}</a></li>
+          </ul>
+          <div class="plate" role="group" aria-label="Language">
+            <span class="plate-on" aria-current="true">{lang.toUpperCase()}</span>
+            {
+              alt ? (
+                <a class="plate-off" href={alt} hreflang={o} lang={o} title={s.switchLabel}>
+                  {o.toUpperCase()}
+                </a>
+              ) : (
+                <span class="plate-off plate-none" title={s.switchLabel}>{o.toUpperCase()}</span>
+              )
+            }
+          </div>
+        </nav>
+      </div>
+      <hr class="seam" />
+    </header>
+
+    <main id="main">
+      <slot />
+    </main>
+
+    <footer class="site-foot">
+      <div class="wrap foot-row">
+        <span>© {new Date().getFullYear()} Duc Quang · ducquang2</span>
+        <span>{s.footer}</span>
+      </div>
+    </footer>
+  </body>
+</html>
+
+<style>
+  .skip {
+    position: absolute;
+    left: 16px;
+    top: -80px;
+    z-index: 20;
+  }
+  .skip:focus {
+    top: 16px;
+  }
+  .site-head {
+    border-top: 8px solid var(--print-navy);
+  }
+  .head-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    min-height: 72px;
+  }
+  .wordmark {
+    font: 900 1.75rem/1 var(--font-display);
+    color: var(--heading);
+    text-decoration: none;
+    letter-spacing: -0.01em;
+  }
+  nav {
+    display: flex;
+    align-items: center;
+    gap: clamp(16px, 3vw, 36px);
+  }
+  nav ul {
+    display: flex;
+    gap: clamp(16px, 3vw, 32px);
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  nav ul a {
+    font: 700 1.125rem/1 var(--font-display);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--heading);
+    text-decoration: none;
+    padding: 8px 0;
+  }
+  nav ul a:hover,
+  nav ul a[aria-current="page"] {
+    text-decoration: underline;
+    text-decoration-thickness: 3px;
+    text-decoration-color: var(--rule-accent);
+    text-underline-offset: 8px;
+  }
+  .plate {
+    display: inline-flex;
+    border: 2px solid var(--heading);
+    border-radius: 6px;
+    overflow: hidden;
+    font: 800 0.95rem/1 var(--font-display);
+    letter-spacing: 0.08em;
+  }
+  .plate > * {
+    padding: 8px 10px 7px;
+    min-width: 40px;
+    text-align: center;
+  }
+  .plate-on {
+    background: var(--heading);
+    color: var(--ground);
+  }
+  .plate-off {
+    color: var(--heading);
+    text-decoration: none;
+  }
+  a.plate-off:hover {
+    background: var(--ground-deep);
+  }
+  .plate-none {
+    opacity: 0.45;
+  }
+  main {
+    padding-bottom: clamp(72px, 10vw, 128px);
+  }
+  main:has(> .contact:last-child) {
+    padding-bottom: 0;
+  }
+  .site-foot {
+    border-top: 2px solid var(--rule);
+    padding: 22px 0 32px;
+    font: 700 0.95rem/1.4 var(--font-display);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-soft);
+  }
+  @media (max-width: 480px) {
+    .wordmark {
+      font-size: 1.4rem;
+    }
+    nav,
+    nav ul {
+      gap: 14px;
+    }
+    nav ul a {
+      font-size: 1rem;
+      letter-spacing: 0.05em;
+    }
+  }
+  .foot-row {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 8px 24px;
+  }
+</style>

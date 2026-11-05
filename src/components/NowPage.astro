@@ -1,0 +1,61 @@
+---
+import { getEntry, render } from "astro:content";
+import Base from "../layouts/Base.astro";
+import { t, formatDate, type Lang } from "../i18n";
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const s = t[lang];
+const entry = await getEntry("now", lang);
+if (!entry) throw new Error(`Missing src/content/now/${lang}.md`);
+const { Content } = await render(entry);
+---
+
+<Base lang={lang} title={`${s.nowTitle} · ducquang2`} path="/now/">
+  <div class="wrap page">
+    <h1>{s.nowTitle}</h1>
+    <p class="ticket">
+      <span>{s.updated} <time datetime={entry.data.updated.toISOString()}>{formatDate(entry.data.updated, lang)}</time></span>
+    </p>
+    <hr class="seam" />
+    <div class="now">
+      <Content />
+    </div>
+  </div>
+</Base>
+
+<style>
+  .page {
+    padding-top: clamp(40px, 7vw, 88px);
+  }
+  h1 {
+    font-weight: 900;
+    font-size: clamp(3.5rem, 9vw, 6rem);
+    text-transform: uppercase;
+    line-height: 0.85;
+  }
+  .ticket {
+    margin: 16px 0 20px;
+  }
+  .now {
+    max-width: 62ch;
+    padding-top: 28px;
+    font-size: 1.25rem;
+    line-height: 1.6;
+  }
+  .now :global(ul) {
+    margin: 0;
+    padding-left: 1.1em;
+  }
+  .now :global(li + li) {
+    margin-top: 0.7em;
+  }
+  .now :global(li::marker) {
+    color: var(--rule-accent);
+  }
+  .now :global(strong) {
+    font-weight: 600;
+  }
+</style>
