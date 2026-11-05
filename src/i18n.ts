@@ -38,11 +38,24 @@ export const seasons = [
   { yr: "2020", team: "Kao Engine", pos: { en: "SWE · PT", vi: "SWE · PT" }, rookie: true },
 ];
 
-export const projects = [
+/** A string in every site language. */
+export type Localized = Record<Lang, string>;
+
+export interface Project {
+  name: string;
+  /** Tech stack, shown as a ticket line, e.g. "React · TypeScript". */
+  stack: string;
+  /** Source code URL. */
+  code: string;
+  /** Live demo URL, when there is one. */
+  live?: string;
+  desc: Localized;
+}
+
+export const projects: Project[] = [
   {
     name: "NitFlex",
     stack: "React · TypeScript · Tailwind · Vite",
-    live: "https://ducquang2.github.io/nitflex-web/",
     code: "https://github.com/ducquang2/nitflex-web",
     desc: {
       en: "Movie review web app with Google sign-in, trailers and reviews. Team project for the Advanced Web Programming course.",
