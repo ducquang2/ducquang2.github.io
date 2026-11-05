@@ -90,12 +90,12 @@ const { Content: NowContent } = now ? await render(now) : { Content: null };
             <p class="p-desc">{p.desc[lang]}</p>
             <p class="p-stack">{p.stack}</p>
             <p class="p-links">
-              {/* {p.live && (
+              {p.live && (
                 <a href={p.live} target="_blank" rel="noopener">
                   {s.live}
                   <span class="visually-hidden">: {p.name}</span>
                 </a>
-              )} */}
+              )}
               <a href={p.code} target="_blank" rel="noopener">
                 {s.code}
                 <span class="visually-hidden">: {p.name}</span>
