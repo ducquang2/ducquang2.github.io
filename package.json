@@ -12,5 +12,6 @@
     "@fontsource/jetbrains-mono": "^5.3.0",
     "@fontsource/rokkitt": "^5.3.0",
     "astro": "^5.18.2"
-  }
+  },
+  "packageManager": "pnpm@12.16.1"
 }
