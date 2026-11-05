@@ -20,5 +20,5 @@ FIRST VIEWPORT: One large card dealt at a slight angle, centre-left, about 70% o
 FORM: Wax pack trading card (pop-culture-shelf-wax-pack-card), dealt challenger chosen from the bolder hand; seed:7de259e7c48304af
 FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, DESIGN.md, and every shipping raster carrying its provenance
 
-Signature interaction: the 3D card flip, plus a gentle hover tilt (max 6deg, user-requested 2026-11-05); the card is the only thing that moves. Reduced motion disables tilt and swaps faces instantly.
+Signature interaction: the 3D card flip, plus a gentle hover tilt (max 6deg, user-requested 2026-11-05); the card leads all motion; the header only slides in/out with scroll direction (user-requested 2026-11-05). Reduced motion disables tilt and swaps faces instantly.
 Open: hobbies page waits for Duc's content; Now entry text must be confirmed by Duc.

@@ -131,7 +131,7 @@ The visitor is handed a trading card. Duc is the card: a portrait front with a s
 
 The page ground is green-grey card stock, never cream, and at night it becomes green charcoal. The printed cards are physical objects: their colours do not change between schemes. Density is set-checklist density: big slab caps, generous rules, numbered rows, short ruled tables. Structure comes from rules and seams, not boxes.
 
-Motion belongs to the card alone: the 3D flip, plus a gentle pointer tilt (max 6deg, with a faint soft-light glare) on hover-capable fine pointers. Nothing else animates beyond 160ms colour changes on buttons; reduced motion disables the tilt and swaps the faces instantly.
+Motion belongs to the card alone: the 3D flip, plus a gentle pointer tilt (max 6deg, with a faint soft-light glare) on hover-capable fine pointers. The header also slides away on scroll down and back on scroll up (320ms ease-out, always shown at the top and on keyboard focus). Nothing else animates beyond 160ms colour changes on buttons; reduced motion disables the tilt and swaps the faces instantly.
 
 **Key Characteristics:**
 - Green-grey card-stock ground (light) and green-charcoal ground (dark); printed objects stay identical across schemes.
@@ -139,7 +139,7 @@ Motion belongs to the card alone: the 3D flip, plus a gentle pointer tilt (max 6
 - Deep-forest-over-red double rule ("seam") under every section heading.
 - Numbered tickets (No., year, language, stack) as the metadata voice.
 - One gold element per site: the foil series stamp on the card front.
-- Card-only motion: the flip and a gentle hover tilt.
+- Card-led motion: the flip and a gentle hover tilt; the header only slides in and out with scroll direction.
 
 ## Colors
 
@@ -262,7 +262,7 @@ A full-bleed print-deep band with a 6px print-red top border, a white headline, 
 
 ### Don't:
 - **Don't** use gold anywhere except the card's foil series stamp.
-- **Don't** add motion beyond the card's flip and hover tilt and 160ms colour transitions.
+- **Don't** add motion beyond the card's flip and hover tilt, the header's scroll slide, and 160ms colour transitions.
 - **Don't** put an eyebrow or kicker above a heading.
 - **Don't** use JetBrains Mono for labels, nav or metadata; it is for stat tables, code and data.
 - **Don't** use a cream or warm off-white page ground; the stock is green-grey, and green charcoal at night.

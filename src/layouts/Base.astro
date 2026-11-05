@@ -47,7 +47,7 @@ const current = (p: string) => (path === p || path.startsWith(p) ? "page" : unde
   </head>
   <body>
     <a class="skip btn btn-primary" href="#main">{s.skip}</a>
-    <header class="site-head">
+    <header class="site-head" data-site-head>
       <div class="wrap head-row">
         <a class="wordmark" href={localePath(lang, "/")}>ducquang2</a>
         <nav aria-label="Primary">
@@ -82,6 +82,39 @@ const current = (p: string) => (path === p || path.startsWith(p) ? "page" : unde
         <span>{s.footer}</span>
       </div>
     </footer>
+    <script>
+      // Hide the header while scrolling down, bring it back on scroll up.
+      const head = document.querySelector<HTMLElement>("[data-site-head]");
+      if (head) {
+        const THRESHOLD = 8; // px of movement before reacting
+        let lastY = window.scrollY;
+        let ticking = false;
+        const update = () => {
+          const y = window.scrollY;
+          const dy = y - lastY;
+          if (y <= head.offsetHeight) {
+            head.classList.remove("is-hidden");
+          } else if (dy > THRESHOLD && !head.contains(document.activeElement)) {
+            head.classList.add("is-hidden");
+          } else if (dy < -THRESHOLD) {
+            head.classList.remove("is-hidden");
+          }
+          if (Math.abs(dy) > THRESHOLD) lastY = y;
+          ticking = false;
+        };
+        window.addEventListener(
+          "scroll",
+          () => {
+            if (!ticking) {
+              ticking = true;
+              requestAnimationFrame(update);
+            }
+          },
+          { passive: true },
+        );
+        head.addEventListener("focusin", () => head.classList.remove("is-hidden"));
+      }
+    </script>
   </body>
 </html>
 
@@ -96,7 +129,15 @@ const current = (p: string) => (path === p || path.startsWith(p) ? "page" : unde
     top: 16px;
   }
   .site-head {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: var(--ground);
     border-top: 8px solid var(--print-deep);
+    transition: transform 320ms var(--ease-out);
+  }
+  .site-head.is-hidden {
+    transform: translateY(-100%);
   }
   .head-row {
     display: flex;
